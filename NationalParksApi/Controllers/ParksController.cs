@@ -3,9 +3,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NationalParksApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NationalParksApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ParksController : ControllerBase

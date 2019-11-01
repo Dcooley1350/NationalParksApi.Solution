@@ -23,6 +23,10 @@ namespace NationalParksApi.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
+
+        //Register
+        [Route("register")]
+        [HttpPost]
         public async Task<ActionResult> InsertUser([FromBody] RegisterViewModel model)
         {
             var user = new IdentityUser
@@ -39,6 +43,7 @@ namespace NationalParksApi.Controllers
             return Ok(new { Username = user.UserName });
         }
 
+        //Login
         [Route("login")]
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] LoginViewModel model)
