@@ -14,8 +14,13 @@ namespace NationalParksApi.Models
         {
             builder.Entity<Park>()
                 .HasData(
-                    new Park { }
-                )
+                    new Park { ParkId = 1, Name = "Yellow Stone", Description = "A beautiful little park.", Location = "Wyoming"},
+                    new Park { ParkId = 2, Name = "Crater Lake", Description = "Big 'Ol Deep Clear Lake", Location = "Oregon"},
+                    new Park { ParkId = 3, Name = "Big Bear", Description = "Big 'Ol Mountain" , Location = "California"},
+                    new Park { ParkId = 4, Name = "Grand Canyon", Description = "Big 'Ol crack in the ground", Location = "Nevada"},
+                    new Park { ParkId = 5, Name = "Jedidiah Smith RedWoods", Description = "Big Ol Trees" , Location = "California"},
+                    new Park { ParkId = 6, Name = "EverGlades", Description = "Dirty Ol Water", Location ="Florida"}
+                );
         }
     }
 }
