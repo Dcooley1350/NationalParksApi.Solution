@@ -10,24 +10,34 @@ _An Api designed to allow the administrator to Display, Create, Delete, and Upda
 
 ## Specifications
 
-| Spec                      |Endpoint|
+| Spec                      |Method|
 |:---------------------------|:-------------|
-|Allows user to display a list of national park data.|"find parks" |
-|Allows user to create a new park object|"new park"|
-|Allows user to delete a park object|"delete park"|
-|Allows a user to update a park object|"update park"|
-|Creates a list of all Flavor objects|
+|Allows user to search a list of national park data.|Get (parameter:name/location/description) |
+|Allows user to create a new park object|Post|
+|Allows user to delete a park object|Delete|
+|Allows a user to update a park object|Patch|
+|Allows user to display a certain park.| Get{id}|
 
 ## Setup/Installation Requirements
 
-_You may make api calls to this api from any client setup to do so. Example queries for each endpoint follow:
-|Endpoint                      |Query|
-|:---------------------------|:-------------|
-|Create|"find parks" |
-|Read|"new park"|
-|Update|"delete park"|
-|Delete|"update park"|
-|Creates|
+_Clone this repository from GitHub. You must create an appsettings.json file in the project directory, then place the following text in your appsettings.json file:  
+
+{  
+    {  
+  "AllowedHosts": "*",  
+  "ConnectionStrings": {  
+    "DefaultConnection": "Server=localhost;Port=3306;database=national_parks_api;  uid=root;pwd=Davin098#;"  
+  }  
+}
+
+You may make api calls to this api from any client setup to do so. Example queries for each endpoint follow:
+|Funtion                     |Parameter       | ExampleRequest     |
+|:---------------------------|:-------------|:--------------|
+|Post|Create Object in body of request with literal object | http://localhost:5000/api/parks/{id}|
+|Get|{id}|http://localhost:5000/api/parks/{id}|
+|Patch|{id}, Include literal object containing changes|http://localhost:5000/api/parks/{id}|
+|Delete|{id}|http://localhost:5000/api/parks/{id}
+|Get|"name" and/or "location" and/or "description"|http://localhost:5000/api/Parks/?name=EverGlades|
 
 ## Known Bugs
 
