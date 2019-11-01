@@ -27,6 +27,11 @@ namespace NationalParksApi.Controllers
         {
             return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
         }
+        // [HttpGet]
+        // public ActionResult<IEnumerable<Park>> Get()
+        // {
+        //     return _db.Parks.ToList();
+        // }
         [HttpGet]
         public ActionResult<IEnumerable<Park>> GetAction(string name, string description, string location)
         {
