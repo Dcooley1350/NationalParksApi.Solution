@@ -39,6 +39,9 @@ You may make api calls to this api from any client setup to do so. Example queri
 |Delete|{id}|http://localhost:5000/api/parks/{id}
 |Get|"name" and/or "location" and/or "description"|http://localhost:5000/api/Parks/?name=EverGlades|
 
+## Swagger
+
+_This application is equipped with Swagger. go to "http://localhost:5000/swagger/index.html" in your browser while running the application to explore swagger. Major Swag fa sho.
 ## Known Bugs
 
 _There are no known bugs at this time._
