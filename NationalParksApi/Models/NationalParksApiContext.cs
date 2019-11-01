@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace NationalParksApi.Models
 {
-    public class NationalParksApiContext : DbContext
+    public class NationalParksApiContext : IdentityDbContext<IdentityUser>
     {
         public NationalParksApiContext(DbContextOptions<NationalParksApiContext> options) : base(options)
-        {
-
-        }
+        { }
         public DbSet<Park> Parks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -20,6 +19,10 @@ namespace NationalParksApi.Models
                     new Park { ParkId = 4, Name = "Grand Canyon", Description = "Big 'Ol crack in the ground", Location = "Nevada"},
                     new Park { ParkId = 5, Name = "Jedidiah Smith RedWoods", Description = "Big Ol Trees" , Location = "California"},
                     new Park { ParkId = 6, Name = "EverGlades", Description = "Dirty Ol Water", Location ="Florida"}
+                );
+            builder.Entity<IdentityUser>().HasData(
+                new IdentityRole{ Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole{ Id = "2", Name = "Customer", NormalizedName = "ADMIN" }
                 );
         }
     }
