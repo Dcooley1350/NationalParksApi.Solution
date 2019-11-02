@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NationalParksApi.Models;
 
 namespace NationalParksApi.Migrations
 {
     [DbContext(typeof(NationalParksApiContext))]
-    partial class NationalParksApiContextModelSnapshot : ModelSnapshot
+    [Migration("20191102023442_fixRolls")]
+    partial class fixRolls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,6 +42,12 @@ namespace NationalParksApi.Migrations
                     b.ToTable("AspNetRoles");
 
                     b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
                         new
                         {
                             Id = "2",

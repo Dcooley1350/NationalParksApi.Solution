@@ -29,9 +29,6 @@ namespace NationalParksApi.Controllers
         [HttpPost]
         public async Task<ActionResult> InsertUser([FromBody] RegisterViewModel model)
         {
-            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + model);
-            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             var user = new IdentityUser 
             {
                 Email = model.Email,
@@ -39,10 +36,10 @@ namespace NationalParksApi.Controllers
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(user, "Customer");
-            }
+            // if (result.Succeeded)
+            // {
+            //     await _userManager.AddToRoleAsync(user, "Customer");
+            // }
             return Ok(new { Username = user.UserName });
         }
 
@@ -58,14 +55,15 @@ namespace NationalParksApi.Controllers
                     new Claim (JwtRegisteredClaimNames.Sub, user.UserName)
                 };
                 var signinKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
-                int expiryInMinutes = Convert.ToInt32(_configuration["Jwt:ExpiryInMinutes"]);
+                int expiryInMinutes = Convert.ToInt32(_configuration
+                ["Jwt:ExpiryInMinutes"]);
                 var token = new JwtSecurityToken(
                     issuer: _configuration["Jwt:Site"],
                     audience: _configuration["Jwt:Site"],
                     expires: DateTime.UtcNow.AddMinutes(expiryInMinutes),
                     signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
                 );
-
+                Console.WriteLine(token);
                 return Ok(
                     new
                     {

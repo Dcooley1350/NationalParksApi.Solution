@@ -53,7 +53,9 @@ Log In: _Make a Post request to the address http://localhost:5000/login. In the 
 	"Password" : "password"  
 }  
 
-**If Login is successful, you will recieve your token in return, and the time of expiration.**
+**If Login is successful, you will recieve your token in return, and the time of expiration.**  
+
+_When you make requests to the parks api, you will need to input that token into your request in the form of a bearer token._
 
 _You may make api calls to this api from any client setup to do so. Example queries for each endpoint follow:_
 |Function                     |Parameter       | ExampleRequest     |

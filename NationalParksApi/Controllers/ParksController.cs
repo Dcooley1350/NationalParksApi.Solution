@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using NationalParksApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace NationalParksApi.Controllers
 {
@@ -27,6 +28,8 @@ namespace NationalParksApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Park> Get(int id)
         {
+ 
+            Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
         }
         // [HttpGet]
