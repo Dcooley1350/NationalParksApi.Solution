@@ -29,7 +29,10 @@ namespace NationalParksApi.Controllers
         [HttpPost]
         public async Task<ActionResult> InsertUser([FromBody] RegisterViewModel model)
         {
-            var user = new IdentityUser
+            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + model);
+            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            var user = new IdentityUser 
             {
                 Email = model.Email,
                 UserName = model.Email,
@@ -75,3 +78,11 @@ namespace NationalParksApi.Controllers
         }
     }
 }
+
+	// <h1>An unhandled exception occurred while processing the request.</h1>
+	// <div class="titleerror">InvalidOperationException: Unable to resolve service for type
+	// 	&#x27;Microsoft.AspNetCore.Identity.UserManager`1[Microsoft.AspNetCore.Identity.IdentityUser]&#x27; while
+	// 	attempting to activate &#x27;NationalParksApi.Controllers.AuthorizationController&#x27;.</div>
+	// <p class="location">Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type
+    //     type, Type requiredBy, bool isDefaultParameterRequired)</p>
+	// <ul id = "header" >

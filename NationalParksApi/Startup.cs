@@ -26,7 +26,7 @@ namespace NationalParksApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<NationalParksApiContext>(opt => opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<ApplicationUser, IdentityRole>(
+            services.AddIdentity<IdentityUser, IdentityRole>(
                 option =>
                 {
                     option.Password.RequireDigit = false;
